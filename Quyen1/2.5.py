@@ -1,2 +1,2 @@
-mp = ["khong so dep", "la so dep"]
-print(mp[(int(input()) % 9 == 0)])
+mp = ["La so dep", "Khong la so dep"]
+print(mp[bool(int(input()) % 9)])
