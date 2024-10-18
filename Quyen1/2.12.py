@@ -9,3 +9,12 @@ while prod <= b:
 
 print(d)
 
+## Ngay 18.10.2024
+n = int(input())
+cur = 5
+ans = 0
+while cur <= n:
+    ans += n//cur
+    cur *= 5
+print(ans)
+

@@ -15,3 +15,16 @@ while i>=0:
 for x in b[::-1]:
     print(mp[x],end='')
 
+# Ngay 18.10.2024
+n = input()
+n = (bool(len(n)%4)*4 - (len(n)%4))*'0' + n
+
+mp = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+while (len(n) > 0):
+    s = n[:4:]
+    n = n[4::]
+    d = 0
+    for i in range(4):
+        d+=pow(2,3-i)*int(s[i])
+    print(mp[d],end='')
+

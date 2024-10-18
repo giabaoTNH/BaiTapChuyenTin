@@ -16,7 +16,7 @@ while f[-1] <= b:
         ans+=1
 
 print(ans)
-# cach 3
+# cach 3 (Ngay 18.10.2024)
 a,b = map(int,input().split())
 t1=0
 t2=1
