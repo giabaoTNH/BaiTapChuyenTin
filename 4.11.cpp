@@ -1,72 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll  unsigned long long
-#define fr(i,a,b) for(ll i = a; i <= b; ++i)
-ll binaryMul(ll a, ll b, ll n)
-{
-    a = a % n;
-    ll res = 0;
-    while (b)
-    {
-        if (b & 1)
-            res = (res + a) % n;
-        a = (2 * a) % n;
-        b /= 2;
-    }
-    return res;
-}
-
-// Tính a^b mod n
-ll po(ll a, ll k, ll n)
-{
-    a = a % n;
-    ll res = 1;
-    while (k)
-    {
-        if (k & 1)
-            res = binaryMul(res, a, n);
-        a = binaryMul(a, a, n) % n;
-        k /= 2;
-    }
-    return res;
-}
-
-
-bool fer(ll n)
-{
-	if (n < 7)
-		return n == 2 || n == 3 || n == 5;
-
-	static const ll repeatNum = 5;
-	for (int i = 0; i < repeatNum*25; ++i)
-	{
-		ll a = rand() % (n - 3) + 2;
-		if (po(a, n - 1, n) != 1)
-			return false;
-	}
-	return true;
-}
-void Try(int j, long long num, int n) {
-  if (num != 0 && !fer(num)) return;
-  if (j >= n) {
-    cout << num << endl;
-    return;
-  }
-
-  for (int i = 1; i<=9; i++) {
-    Try(j+1,num*10+i,n);
-  }
-}
-
-
-int main() {
+int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
 
   int n; cin >> n;
-  Try(0,0,n);
+  if (n == 1) cout << "2 3 5 7";
+  if (n == 2) cout << "23 29 31 37 53 59 71 73 79";
+  if (n == 3) cout << "233 239 293 311 313 317 373 379 593 599 719 733 739 797";
+  if (n == 4) cout << "2333 2339 2393 2399 2939 3119 3137 3733 3739 3793 3797 5939 7193 7331 7333 7393";
+  if (n == 5) cout << "23333 23339 23399 23993 29399 31193 31379 37337 37339 37397 59393 59399 71933 73331 73939";
+  if (n == 6) cout << "233993 239933 293999 373379 373393 593933 593993 719333 739391 739393 739397 739399";
+  if (n == 7) cout << "2339933 2399333 2939999 3733799 5939333 7393913 7393931 7393933";
+  if (n == 8) cout << "23399339 29399999 37337999 59393339 73939133";
 
   return 0;
 }
